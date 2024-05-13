@@ -1,5 +1,5 @@
-import { HttpException } from '../helpers/http-exception';
-import prisma from '../helpers/prisma-client';
+import { HttpException } from '../common/http-exception';
+import prisma from '../common/prisma-client';
 
 export async function createProduct(data) {
   const product = await prisma.product.create({

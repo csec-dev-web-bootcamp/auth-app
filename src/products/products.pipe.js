@@ -1,5 +1,5 @@
-import { formatZodError } from '../helpers/format-zod-error';
-import { HttpException } from '../helpers/http-exception';
+import { formatZodError } from '../common/format-zod-error';
+import { HttpException } from '../common/http-exception';
 import { createProductSchema } from './products.validation';
 
 export function createProductPipe(req, res, next) {

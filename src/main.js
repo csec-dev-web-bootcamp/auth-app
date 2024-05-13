@@ -1,7 +1,7 @@
 import cors from 'cors';
 import 'dotenv/config';
 import express from 'express';
-import { corsOptions } from './constants/cors-options';
+import { corsOptions } from './config/cors-options';
 import { exceptionHandler } from './middlewares/exception-handler';
 import productsController from './products/products.controller';
 

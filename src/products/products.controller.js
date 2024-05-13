@@ -1,5 +1,5 @@
 import express from 'express';
-import { asyncHandler } from '../helpers/async-handler';
+import { asyncHandler } from '../common/async-handler';
 import { createProductPipe, updateProductPipe } from './products.pipe';
 import {
   createProduct,
