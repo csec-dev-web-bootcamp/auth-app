@@ -10,7 +10,7 @@ export async function createUser(data) {
   });
 
   if (userExist) {
-    throw new HttpException('User already', 409);
+    throw new HttpException('User already exist with this Email', 409);
   }
 
   const hash = await argon2.hash(data.password);
@@ -37,6 +37,7 @@ export async function loginUser(data) {
   }
 
   const valid = await argon2.verify(user.password, data.password);
+
   if (!valid) {
     throw new HttpException('Invalid password', 401);
   }

@@ -15,7 +15,6 @@ const productsController = express.Router();
 
 productsController.get(
   '/',
-
   asyncHandler(async (req, res) => {
     const products = await getManyProducts();
     return res.json(products);
