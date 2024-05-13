@@ -5,7 +5,8 @@ export default function generateJwtToken(user) {
   const secretKey = process.env.JWT_SECRETE_KEY;
 
   const accessToken = jwt.sign(payload, secretKey, {
-    expiresIn: process.env.JWT_ACCESS_LIFETIME ?? '15m',
+    expiresIn: process.env.JWT_ACCESS_LIFETIME ?? '1d',
   });
+
   return accessToken;
 }

@@ -1,5 +1,7 @@
 import express from 'express';
 import { asyncHandler } from '../common/async-handler';
+import { authGuard } from '../middlewares/auth.guard';
+import { roleGuard } from '../middlewares/role.guard';
 import { createProductPipe, updateProductPipe } from './products.pipe';
 import {
   createProduct,
@@ -13,6 +15,7 @@ const productsController = express.Router();
 
 productsController.get(
   '/',
+
   asyncHandler(async (req, res) => {
     const products = await getManyProducts();
     return res.json(products);
@@ -21,6 +24,8 @@ productsController.get(
 
 productsController.post(
   '/',
+  authGuard,
+  roleGuard(['CUSTOMER', 'OWNER']),
   createProductPipe,
   asyncHandler(async (req, res) => {
     const data = req.body;
@@ -31,6 +36,7 @@ productsController.post(
 
 productsController.get(
   '/:id',
+  authGuard,
   asyncHandler(async (req, res) => {
     const { id } = req.params;
     const product = await getOneProduct(id);

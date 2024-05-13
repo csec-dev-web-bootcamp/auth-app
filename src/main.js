@@ -1,6 +1,7 @@
 import cors from 'cors';
 import 'dotenv/config';
 import express from 'express';
+import authController from './auth/auth.controller';
 import { corsOptions } from './config/cors-options';
 import { exceptionHandler } from './middlewares/exception-handler';
 import productsController from './products/products.controller';
@@ -17,6 +18,7 @@ app.get('/', (req, res) => {
 });
 
 app.use('/products', productsController);
+app.use('/auth', authController);
 
 app.all('*', (req, res) => {
   return res.status(404).json({ error: 'Not Found' });
