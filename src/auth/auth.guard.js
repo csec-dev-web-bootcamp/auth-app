@@ -1,5 +1,5 @@
-import { findUserById } from '../auth/auth.service';
-import validateJwtToken from '../common/validate-jwt-token';
+import { findUserById } from './auth.service';
+import validateJwtToken from './jwt/validate-jwt-token';
 
 export function authGuard(req, res, next) {
   async function validate() {

@@ -1,7 +1,7 @@
 import express from 'express';
 import { asyncHandler } from '../common/async-handler';
 import { createUser, loginUser } from './auth.service';
-import generateJwtToken from './generate-jwt-token';
+import generateJwtToken from './jwt/generate-jwt-token';
 
 const authController = express.Router();
 

@@ -1,5 +1,5 @@
 import jwt from 'jsonwebtoken';
-import { HttpException } from './http-exception';
+import { HttpException } from '../../common/http-exception';
 
 export default function validateJwtToken(accessToken) {
   const secretKey = process.env.JWT_SECRETE_KEY;

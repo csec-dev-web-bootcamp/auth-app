@@ -1,7 +1,7 @@
 import express from 'express';
+import { authGuard } from '../auth/auth.guard';
+import { roleGuard } from '../auth/role.guard';
 import { asyncHandler } from '../common/async-handler';
-import { authGuard } from '../middlewares/auth.guard';
-import { roleGuard } from '../middlewares/role.guard';
 import { createProductPipe, updateProductPipe } from './products.pipe';
 import {
   createProduct,
