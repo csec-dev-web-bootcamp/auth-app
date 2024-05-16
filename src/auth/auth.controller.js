@@ -9,6 +9,7 @@ authController.post(
   '/register',
   asyncHandler(async (req, res) => {
     const data = req.body;
+    console.log({ data });
     const user = await createUser(data);
     const jwt = generateJwtToken(user);
     return res.json({ user, jwt });
